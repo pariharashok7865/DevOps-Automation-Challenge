@@ -8,29 +8,33 @@ pipeline
             steps
             {
                 dir('C:\\tmp\\DevOps-Automation-Challenge') {
-                    echo "inside dir block"
-                    pwd()
-
-            
-                }  
-                echo "outside dir block"
-                pwd()
-                
+                  bat label: '', script: "minikube start --nodes 2 -p kube-node"
+                  bat label: '', script: "kubectl get nodes"              
+                }                                  
             }
         }
         stage('Deploy-Hello-World_Container')
         {
             steps
             {
-                pwd()
+                dir('C:\\tmp\\DevOps-Automation-Challenge') {
+                  bat label: '', script: "kubectl apply -f hello-world-deployment.yaml" 
+                  bat label: '', script: "kubectl get deployments"
+                  bat label: '', script: "kubectl get pods -o wide"
+                  bat label: '', script: "kubectl get replicasets"             
+                }  
 
             }
         }
-        stage('Deploy-Ingress-Controller')
+        stage('Deploy-Ingress')
         {
             steps
             {
-                pwd()
+                dir('C:\\tmp\\DevOps-Automation-Challenge') {
+                  bat label: '', script: "minikube addons enable ingress"
+                  bat label: '', script: "kubectl apply -f hello-world-ingress.yaml"
+                  bat label: '', script: "kubectl get ingress"              
+                }  
             }
         }
               
