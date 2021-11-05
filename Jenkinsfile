@@ -11,7 +11,7 @@ pipeline
                   //bat label: '', script: "minikube start --nodes 2 -p kube-node"
                   //bat label: '', script: "kubectl get nodes"
                   //sh label: '', script: 'pwd'
-                  sh label: '', script: 'kubectl get nodes'
+                  //sh label: '', script: 'kubectl get nodes'
                   bat label: '', script: 'kubectl get nodes'              
                 }                                  
             }
