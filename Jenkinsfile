@@ -3,31 +3,36 @@ pipeline
     agent any
     stages 
     {
-        dir('C:\\tmp\\DevOps-Automation-Challenge') {
-            
-            stage('Deploy-Kube_Cluster')
+        stage('Deploy-Kube_Cluster')
+        {
+            steps
             {
-                steps
-                {
-                    pwd()
-                   
-                }
-            }
-            stage('Deploy-Hello-World_Container')
-            {
-                steps
-                {
+                dir('C:\\tmp\\DevOps-Automation-Challenge') {
+                    echo "inside dir block"
                     pwd()
 
-                }
+            
+                }  
+                echo "outside dir block"
+                pwd()
+                
             }
-            stage('Deploy-Ingress-Controller')
+        }
+        stage('Deploy-Hello-World_Container')
+        {
+            steps
             {
-                steps
-                {
-                    pwd()
-                }
+                pwd()
+
             }
-        }        
+        }
+        stage('Deploy-Ingress-Controller')
+        {
+            steps
+            {
+                pwd()
+            }
+        }
+              
     }
 }
