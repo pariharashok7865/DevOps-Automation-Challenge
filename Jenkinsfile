@@ -12,7 +12,7 @@ pipeline
                   //bat label: '', script: "kubectl get nodes"
                   //sh label: '', script: 'pwd'
                   //sh label: '', script: 'kubectl get nodes'
-                  bat label: '', script: 'kubectl get nodes'              
+                  //bat label: '', script: 'kubectl get nodes'              
                 }                                  
             }
         }
